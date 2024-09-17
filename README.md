@@ -37,7 +37,8 @@ curl -X POST http://localhost:8080/generate \
 -H "Content-Type: application/json" \
 -d '{
 "system": "You are a car assistant.",
-"user": "What is the fastest car you know?"
+"user": "What is the fastest car you know?",
+"json": "true"
 }'
 ```
 

@@ -43,9 +43,9 @@ class ChatModel:
             outputs = self.model.generate(
                 **inputs,
                 do_sample=True,
-                top_k=50,
-                top_p=0.95,
-                temperature=0.7,
+                top_k=10,
+                top_p=0.9,
+                temperature=0.3,
                 eos_token_id=self.tokenizer.eos_token_id,
             )
 

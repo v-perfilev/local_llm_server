@@ -1,6 +1,8 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
+from config import MODEL_NAME
+
 
 class ChatModel:
     def __init__(self, access_token):
@@ -13,7 +15,7 @@ class ChatModel:
 
         self.device = torch.device(device)
 
-        model_name = "meta-llama/Llama-2-7b-chat-hf"
+        model_name = MODEL_NAME
 
         self.tokenizer = AutoTokenizer.from_pretrained(
             model_name,

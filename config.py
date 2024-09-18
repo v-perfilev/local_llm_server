@@ -1,2 +1,3 @@
 HF_ACCESS_TOKEN = "FILL_IT_WITH_YOUR_OWN_ACCESS_TOKEN"
+MODEL_NAME = "meta-llama/Llama-2-7b-chat-hf"
 PORT = 8090

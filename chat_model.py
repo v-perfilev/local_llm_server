@@ -29,6 +29,9 @@ class ChatModel:
         )
         self.model.to(self.device)
 
+    def get_device_type(self):
+        return self.device.type
+
     def generate_response(self, system_prompt, user_prompt):
         full_prompt = f"""[INST] <<SYS>>
         {system_prompt}

@@ -6,10 +6,11 @@ from flask import Flask, request
 from chat_model import ChatModel
 from config import HF_ACCESS_TOKEN, PORT
 
+model = ChatModel(access_token=HF_ACCESS_TOKEN)
+
 app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
-
-llama_model = ChatModel(access_token=HF_ACCESS_TOKEN)
+app.logger.info(' The model is running on `%s` device', model.get_device_type())
 
 
 def extract_json(response):
@@ -31,13 +32,13 @@ def generate():
 
     app.logger.info(' System prompt: %s', system_prompt)
     app.logger.info(' User prompt: %s', user_prompt)
-    app.logger.info(' Should be in JSON: %s', json)
+    app.logger.info(' Answer should be in JSON: %s', json)
 
-    if not system_prompt or not user_prompt or not json:
+    if not system_prompt or not user_prompt or json is None:
         return "Bad request", 400
 
     try:
-        response = llama_model.generate_response(system_prompt, user_prompt)
+        response = model.generate_response(system_prompt, user_prompt)
 
         if json:
             app.logger.info(' Response before JSON extraction: %s', response)

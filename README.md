@@ -29,6 +29,9 @@ HF_ACCESS_TOKEN = "FILL_IT_WITH_YOUR_OWN_ACCESS_TOKEN"
 ```bash
 python server.py
 ```
+## Support for other models
+
+Llama-2 can be replaced with another model by changing the `MODEL_NAME` parameter in the config.
 
 ## Example of use case
 
